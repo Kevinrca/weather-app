@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Weather from './Weather.jsx';
 import './css/App.css';
 
+import unknown from './images/weather_icones/unknown.png';
+
+
 function App() {
 
   const [weatherTemp, getTemp] = useState("-");
   const [weatherDescription, getDescription] = useState("-");
   const [weatherCity, getCity] = useState("-");
-  const [weatherCountry, getCountry] = useState("")
+  const [weatherCountry, getCountry] = useState("");
     
     
   async function getWeather() {
@@ -19,18 +22,22 @@ function App() {
                   .then(result => result.json())
                   .then(data => data);
         
+    console.log(weather);
+    
     getTemp(prev => prev = Math.floor(weather.main.temp - 273));
     getDescription(prev => prev = weather.weather[0].description);
     getCity(prev => prev = weather.name);
     getCountry(prev => prev = weather.sys.country);
   }
   getWeather();
+
   
   
   return (
     <div className="app">
       <h1 className="websiteTitle">Weather app</h1>
       <Weather 
+        weatherIcon={unknown}
         weatherTemp={weatherTemp}
         weatherDescription={weatherDescription}
         weatherCity={weatherCity}
