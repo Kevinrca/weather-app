@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Weather from './Weather.jsx';
 import './css/App.css';
 
 import unknown from './images/weather_icones/unknown.png';
 
 
+
 function App() {
 
-  const [weatherTemp, getTemp] = useState("-");
-  const [weatherDescription, getDescription] = useState("-");
-  const [weatherCity, getCity] = useState("-");
-  const [weatherCountry, getCountry] = useState("");
-    
-    
+  const [weatherData, getWeatherData] = useState({});
+
   async function getWeather() {
     const city = await fetch(`http://ip-api.com/json`)
                   .then(result => result.json())
@@ -20,28 +17,28 @@ function App() {
             
     const weather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=fr&appid=646d82915c35c27e56f30d7478d9c087`)
                   .then(result => result.json())
-                  .then(data => data);
-        
-    console.log(weather);
-    
-    getTemp(prev => prev = Math.floor(weather.main.temp - 273));
-    getDescription(prev => prev = weather.weather[0].description);
-    getCity(prev => prev = weather.name);
-    getCountry(prev => prev = weather.sys.country);
+                  .then(data => getWeatherData(data));
+
+    console.log("ok");
   }
-  getWeather();
+  
+  //useEffect(() => {
+  //  getWeather();
+  //}, [weatherData]);
+
 
   
   
   return (
     <div className="app">
-      <h1 className="websiteTitle">Weather app</h1>
+      <h1 className="websiteTitle" >Weather app</h1>
+      
       <Weather 
         weatherIcon={unknown}
-        weatherTemp={weatherTemp}
-        weatherDescription={weatherDescription}
-        weatherCity={weatherCity}
-        weatherCountry={weatherCountry} />
+        weatherTemp="-"
+        weatherDescription="-"
+        weatherCity="-"
+        weatherCountry="-" />
     </div>
   );
 }
