@@ -7,5 +7,55 @@
 
 .websiteTitle {
     margin-top: 50px;
+    margin-bottom: 50px;
     font-weight: 600;
+    color: white;
+}
+
+
+.searchCity {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 350px;
+}
+
+.searchField {
+    padding: 10px 13px 10px 13px;
+    width: 100%;
+    height: 30px;
+
+    border: none;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0);
+
+    color: white;
+    font-size: 1.2em;
+    z-index: 2;
+
+}
+
+.searchField::placeholder {
+    color: rgba(209, 209, 209, 0.884);
+}
+
+.searchBlur {
+    background: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    position: absolute;
+
+    width: 400px;
+    height: 100px;
+
+    left: -25px;
+    right: 0;
+    top: -25px; 
+    bottom: 0;
+    box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+    filter: blur(8px);
+    z-index: -1;
 }

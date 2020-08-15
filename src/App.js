@@ -23,7 +23,6 @@ function App() {
       .then(result => {
         setWeather(result);
         setQuery("");
-        console.log(result);
       })
   }
 
@@ -32,6 +31,7 @@ function App() {
     .then(result => result.json())
     .then(json => getWeather(json.city));
   }, []);
+
 
   function search(e) {
     if(e.key === "Enter") {
@@ -52,6 +52,7 @@ function App() {
           onChange={e => setQuery(e.target.value)}
           value={query}
           onKeyPress={search}></input>
+          <div className="searchBlur"></div>
       </div>
 
       {(typeof weather.main !== "undefined") ? (
