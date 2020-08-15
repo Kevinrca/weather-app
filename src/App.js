@@ -12,7 +12,7 @@ const api = {
 
 
 function App() {
-  //const [query, setQuery] = useState('Paris');
+  const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
   
@@ -22,6 +22,7 @@ function App() {
       .then(res => res.json())
       .then(result => {
         setWeather(result);
+        setQuery("");
         console.log(result);
       })
   }
@@ -32,10 +33,27 @@ function App() {
     .then(json => getWeather(json.city));
   }, []);
 
+  function search(e) {
+    if(e.key === "Enter") {
+      getWeather(query);
+    }
+  }
+
 
   return (
     <div className="app">
       <h1 className="websiteTitle" >Weather app</h1>
+
+      <div className="searchCity">
+        <input 
+          type="text"
+          className="searchField"
+          placeholder="Search..."
+          onChange={e => setQuery(e.target.value)}
+          value={query}
+          onKeyPress={search}></input>
+      </div>
+
       {(typeof weather.main !== "undefined") ? (
         <Weather 
         weatherIconID={weather.weather[0].icon}
