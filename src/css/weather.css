@@ -13,8 +13,10 @@
     align-items: center;
     flex-direction: column;
 }
-.weatherIcone {
-    margin-top: 30px;
+.wi {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 4em;
 }
 
 .temperature {
@@ -35,3 +37,4 @@
 .city {
     font-size: 1.1em;
 }
+

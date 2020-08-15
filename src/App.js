@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Weather from './Weather.jsx';
 import './css/App.css';
 
@@ -14,26 +14,25 @@ const api = {
 
 
 function App() {
-  // const [query, setQuery] = useState('');
+  //const [query, setQuery] = useState('Paris');
   const [weather, setWeather] = useState({});
 
   
   async function getWeather(city) {
+    
     await fetch(`${api.base}weather?q=${city}&lang=fr&APPID=${api.key}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
         console.log(result);
       })
- }
+  }
 
-  window.addEventListener("load", () => {
+  useEffect(() => {
     fetch(`http://ip-api.com/json`)
-      .then(result => result.json())
-      .then(json => {
-        getWeather(json.city);
-      });
-  })
+    .then(result => result.json())
+    .then(json => getWeather(json.city));
+  }, []);
 
 
   return (
@@ -41,14 +40,13 @@ function App() {
       <h1 className="websiteTitle" >Weather app</h1>
       {(typeof weather.main !== "undefined") ? (
         <Weather 
-        weatherIcon={unknown}
         weatherTemp={Math.floor(weather.main.temp - 273)}
         weatherDescription={weather.weather[0].description}
         weatherCity={weather.name}
         weatherCountry={weather.sys.country} />
       ) : 
+
         <Weather 
-        weatherIcon={unknown}
         weatherTemp="-"
         weatherDescription="-"
         weatherCity="-"
