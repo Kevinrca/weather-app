@@ -21,7 +21,10 @@
     background: inherit;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-size: 460px;
+    background-position-x: -18px;
+    background-position-y: -240px;
+
 
     position: absolute;
     width: 400px;
@@ -33,7 +36,7 @@
     bottom: 0;
     
     box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
-    filter: blur(10px);
+    filter: blur(8px);
     z-index: -1;
 }
 

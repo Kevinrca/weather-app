@@ -3,20 +3,21 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 800px;
+    width: 430px;
+
+    border-radius: 20px;
 
     
     background: url("../images/cold-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 
 }
 .warm {
     background: url("../images/warm-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 
@@ -71,7 +72,7 @@
     right: 0;
     top: -25px; 
     bottom: 0;
-    box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+    box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.35);
     filter: blur(8px);
     z-index: -1;
 }
