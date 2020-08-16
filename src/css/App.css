@@ -3,13 +3,27 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+
+    
+    background: url("../images/cold-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
+.warm {
+    background: url("../images/warm-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 
 .websiteTitle {
     margin-top: 50px;
     margin-bottom: 50px;
     font-weight: 600;
-    color: white;
 }
 
 
@@ -18,6 +32,9 @@
     overflow: hidden;
     border-radius: 15px;
     width: 350px;
+
+    background: inherit;
+    z-index: 2;
 }
 
 .searchField {
@@ -30,18 +47,17 @@
 
     background: rgba(255, 255, 255, 0);
 
-    color: white;
     font-size: 1.2em;
     z-index: 2;
 
 }
 
 .searchField::placeholder {
-    color: rgba(209, 209, 209, 0.884);
+    color: rgba(61, 61, 61, 0.541);
 }
 
 .searchBlur {
-    background: url("../images/background.jpg");
+    background: inherit;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

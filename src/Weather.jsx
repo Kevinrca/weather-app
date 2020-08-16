@@ -9,6 +9,10 @@ let currentIcon;
 
 function getIcon(icon) {
     switch(true) {
+        default:
+            currentIcon = "wi-day-cloudy";
+            break;
+
         case(icon === "01d" || icon === "01n"):
             currentIcon = "wi-day-sunny";
             break;
