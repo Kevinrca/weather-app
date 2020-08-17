@@ -13,12 +13,20 @@ function getIcon(icon) {
             currentIcon = "wi-day-cloudy";
             break;
 
-        case(icon === "01d" || icon === "01n"):
+        case(icon === "01d"):
             currentIcon = "wi-day-sunny";
             break;
+
+        case(icon === "01n"):
+            currentIcon = "wi-night-clear";
+            break;
             
-        case(icon === "02d" || icon === "02n"):
+        case(icon === "02d"):
             currentIcon = "wi-day-cloudy";
+            break;
+
+        case(icon === "02n"):
+            currentIcon = "wi-night-alt-cloudy";
             break;
 
         case(icon === "03d" || icon === "03n"):
